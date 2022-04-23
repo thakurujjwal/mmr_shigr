@@ -1,0 +1,13 @@
+
+.form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: block;
+    background: #f4f7f8;
+    border-radius: 5px;
+}
+.form-head {
+    margin-top: 10%;
+}

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step Form</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="assets1/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="assets1/vendor/nouislider/nouislider.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="assets1/css/stepstyle.css">
+</head>
+<style>
+    .custom-select {
+        position: relative;
+        font-family: Arial;
+    }
+    
+    .custom-select select {
+        display: none;
+        /*hide original SELECT element: */
+    }
+    
+    .select-selected {
+        background-color: DodgerBlue;
+    }
+    /* Style the arrow inside the select element: */
+    
+    .select-selected:after {
+        position: absolute;
+        content: "";
+        top: 14px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #fff transparent transparent transparent;
+    }
+    /* Point the arrow upwards when the select box is open (active): */
+    
+    .select-selected.select-arrow-active:after {
+        border-color: transparent transparent #fff transparent;
+        top: 7px;
+    }
+    /* style the items (options), including the selected item: */
+    
+    .select-items div,
+    .select-selected {
+        color: #ffffff;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+    }
+    /* Style items (options): */
+    
+    .select-items {
+        position: absolute;
+        background-color: DodgerBlue;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+    }
+    /* Hide the items when the select box is closed: */
+    
+    .select-hide {
+        display: none;
+    }
+    
+    .select-items div:hover,
+    .same-as-selected {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<body>
+
+    <div class="main">
+        <div class="container">
+            <form method="POST" id="signup-form" class="signup-form" action="#">
+                <div>
+                    <span class="step-no"><img src="assets1\img\logo-dark.png" alt=""></span>
+                    <h3>Personal info</h3>
+                    <fieldset>
+                        <h2>Personal information</h2>
+                        <p class="desc"></p>
+                        <div class="fieldset-content">
+                            <div class="form-row">
+                                <label class="form-label">Name</label>
+                                <div class="form-flex">
+                                    <div class="form-group">
+                                        <input type="text" name="full_name" required placeholder="Name" id="full_name" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" required placeholder="Email Id" id="email" />
+                                <span class="text-input">Example  :<span>  Jeff@gmail.com</span></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="text" name="phone" required placeholder="Phone No" id="phone" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h3>Pick Up Address & Drop Address</h3>
+                    <fieldset>
+                        <h2>Pick Up Address & Drop Address</h2>
+                        <p class="desc"></p>
+                        <div class="fieldset-content">
+                            <div class="form-row">
+                                <label class="form-label">Pickup Address</label>
+                                <div class="form-flex">
+                                    <div class="form-group">
+                                        <input type="text" name="pickup" minlength="2" placeholder="Pick up Address" required id="pickup" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="drop address" class="form-label">Drop Address</label>
+                                <input type="text" name="drop" placeholder="Drop Address *" required id="drop" />
+                            </div>
+                            <div class="form-group">
+                                <label for="article" class="form-label">Document/Merchandise Name of Article</label>
+                                <div class="custom-select" style="width:200px;">
+                                    <select>
+                                      <option value="0">Select Article Tye:</option>
+                                      <option value="1">Gift</option>
+                                      <option value="2">Documents</option>
+                                      <option value="3">Sale of goods</option>
+                                      <option value="4">Commercial sample</option>
+                                      <option value="5">Returned goods</option>
+                                      <option value="6">Other</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <!-- <input type="text" name="article" id="article" placeholder="Document/Merchandise Name of Article" /> --->
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h3>Pickup Slot & Time</h3>
+                    <fieldset>
+                        <h2>Select Pickup Slot and Time</h2>
+                        <p class="desc"></p>
+                        <div class="fieldset-content">
+                            <div class="form-row">
+                                <label class="form-label">Pickup Date</label>
+                                <div class="form-flex">
+                                    <div class="form-group">
+                                        <input type="Date" name="date" minlength="2" placeholder="Pick Date" required id="txtDate" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="time" class="form-label">Pickup Time</label>
+                                <input type="time" name="time" placeholder="Pick Time *" required id="time" onkeyup="checkTimeValidation()" onchange="checkTimeValidation()" />
+                            </div>
+                        </div>
+                    </fieldset>
+                    <h3>Payment Method</h3>
+                    <fieldset>
+                        <h2>Select Payment Method</h2>
+                        <p class="desc"></p>
+                        <div class="fieldset-content">
+                            <div class="form-row">
+                                <ul>
+                                    <li class="bg-white active"><label> Debit Card/ Credit Card 
+                                        <input type="radio" id="condition2" name="web_service"value="Web Design" checked></label></li>
+                                    <li class="bg-white"><label>Cash 
+                                        <input type="radio" name="web_service" value="Web Development"></label></li>
+                                    <li class="bg-white"><label>UPI
+                                         <input type="radio" name="web_service" value="Graphics Design"></label></li>
+                                    <li class="bg-white"><label>Net Banking 
+                                        <input type="radio" name="web_service" value="SEO"></label></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="assets1/vendor/jquery/jquery.min.js"></script>
+    <script src="assets1/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="assets1/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="assets1/vendor/jquery-steps/jquery.steps.min.js"></script>
+    <script src="assets1/vendor/minimalist-picker/dobpicker.js"></script>
+    <script src="assets1/vendor/nouislider/nouislider.min.js"></script>
+    <script src="assets1/vendor/wnumb/wNumb.js"></script>
+    <script src="assets1/js/stepmain.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvnOAJWVkuqSoK4w0GP8ZPG2UeBFbSiKs&libraries=geometry,places&callback=initMap"></script>
+    <script>
+        $(document).ready(function() {
+            $('.conditional').conditionize();
+        });
+
+        function checkTimeValidation() {
+            var time = document.getElementById('time').value;
+            console.log("time : " + time);
+            if (time >= '20') {
+                alert("You could not booked slot after 8:00 PM");
+            }
+        }
+    </script>
+    <script>
+        var searchInput = 'pickup';
+
+        $(document).ready(function() {
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+                types: ['geocode'],
+                componentRestrictions: {
+                    country: "IN",
+                }
+            });
+
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                var near_place = autocomplete.getPlace();
+            });
+        });
+    </script>
+    <script>
+        var searchInput2 = 'drop';
+
+        $(document).ready(function() {
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput2)), {
+                types: ['geocode'],
+                componentRestrictions: {
+                    country: "IN",
+
+                }
+            });
+
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                var near_place = autocomplete.getPlace();
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            var dtToday = new Date();
+
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if (month < 10)
+                month = '0' + month.toString();
+            if (day < 10)
+                day = '0' + day.toString();
+
+            var minDate = year + '-' + month + '-' + day;
+
+            $('#txtDate').attr('min', minDate);
+        });
+    </script>
+    <script>
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        l = x.length;
+        for (i = 0; i < l; i++) {
+            selElmnt = x[i].getElementsByTagName("select")[0];
+            ll = selElmnt.length;
+            /*for each element, create a new DIV that will act as the selected item:*/
+            a = document.createElement("DIV");
+            a.setAttribute("class", "select-selected");
+            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+            x[i].appendChild(a);
+            /*for each element, create a new DIV that will contain the option list:*/
+            b = document.createElement("DIV");
+            b.setAttribute("class", "select-items select-hide");
+            for (j = 1; j < ll; j++) {
+                /*for each option in the original select element,
+                create a new DIV that will act as an option item:*/
+                c = document.createElement("DIV");
+                c.innerHTML = selElmnt.options[j].innerHTML;
+                c.addEventListener("click", function(e) {
+                    /*when an item is clicked, update the original select box,
+                    and the selected item:*/
+                    var y, i, k, s, h, sl, yl;
+                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                    sl = s.length;
+                    h = this.parentNode.previousSibling;
+                    for (i = 0; i < sl; i++) {
+                        if (s.options[i].innerHTML == this.innerHTML) {
+                            s.selectedIndex = i;
+                            h.innerHTML = this.innerHTML;
+                            y = this.parentNode.getElementsByClassName("same-as-selected");
+                            yl = y.length;
+                            for (k = 0; k < yl; k++) {
+                                y[k].removeAttribute("class");
+                            }
+                            this.setAttribute("class", "same-as-selected");
+                            break;
+                        }
+                    }
+                    h.click();
+                });
+                b.appendChild(c);
+            }
+            x[i].appendChild(b);
+            a.addEventListener("click", function(e) {
+                /*when the select box is clicked, close any other select boxes,
+                and open/close the current select box:*/
+                e.stopPropagation();
+                closeAllSelect(this);
+                this.nextSibling.classList.toggle("select-hide");
+                this.classList.toggle("select-arrow-active");
+            });
+        }
+
+        function closeAllSelect(elmnt) {
+            /*a function that will close all select boxes in the document,
+            except the current select box:*/
+            var x, y, i, xl, yl, arrNo = [];
+            x = document.getElementsByClassName("select-items");
+            y = document.getElementsByClassName("select-selected");
+            xl = x.length;
+            yl = y.length;
+            for (i = 0; i < yl; i++) {
+                if (elmnt == y[i]) {
+                    arrNo.push(i)
+                } else {
+                    y[i].classList.remove("select-arrow-active");
+                }
+            }
+            for (i = 0; i < xl; i++) {
+                if (arrNo.indexOf(i)) {
+                    x[i].classList.add("select-hide");
+                }
+            }
+        }
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+    </script>
+</body>
+
+</html>

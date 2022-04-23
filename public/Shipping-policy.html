@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Shigr">
+    <link href="assets/images/favicon/favicon.png" rel="icon">
+    <title>shighr </title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,700%7cWork+Sans:400,600,700&display=swap">
+    <link rel="stylesheet" href="assets/css/libraries.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+        @media screen and (max-width: 1200px) {
+            .request__form1 {
+                /* position: static; */
+                margin-right: 0;
+                width: 100%;
+                /* position: absolute; */
+
+                top: -130px;
+                left: 0;
+                position: relative;
+                /* display: flex;
+        justify-content: center; */
+
+            }
+        }
+
+        .navbar .navbar-nav {
+    margin-top: 0px;
+}
+    </style>
+    <style>
+        #myDIV {
+            display: none;
+        }
+
+        #myDIVV {
+            display: none;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #fff;
+            background-color: #F84208;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 0.25rem;
+            background: #F8420854;
+            color: #000;
+        }
+
+        /* .slider-8 .thumbs-dots .owl-thumb-item {
+    flex: 1;
+    text-align: left;
+    padding: 25px 30px 23px;
+    background-color: rgba(27, 26, 26, 0.5);
+    margin-right: 2px;
+} */
+        .modal-fullscreen .modal-content {
+            height: 100%;
+            border: 0;
+            border-radius: 0;
+        }
+
+        .modal-content {
+            /* position: relative; */
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, .2);
+            border-radius: 0.3rem;
+            outline: 0;
+        }
+
+        .modal.show .modal-dialog {
+            transform: none;
+        }
+
+        .modal.fade .modal-dialog {
+            transition: transform .3s ease-out;
+            /* transform: translate(0,-50px); */
+        }
+
+        /* .modal-fullscreen {
+      width: 100vw;
+      max-width: none;
+      height: 100%;
+      margin: 0;
+    } */
+        /* 
+    .request__form1 {
+      background-color: #fff;
+      box-shadow: 0px 5px 83px 0px rgb(40 40 40 / 8%);
+      margin-right: 90px;
+      position: absolute;
+      z-index: 3;
+      margin-bottom: 30px;
+      top: 35%;
+      right: 120px;
+      width: 25%;
+    } */
+
+        .header__top-right {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            margin-bottom: 0px;
+        }
+
+        .header__top-right ul li .btn {
+            font-size: 14px;
+            width: 100%;
+            height: 40px;
+            padding: 2px 12px;
+            line-height: 40px;
+            letter-spacing: 0;
+        }
+
+
+        .btn1 {
+            text-transform: capitalize;
+            position: relative;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            height: 50px;
+            /* padding: 20px 43px; */
+            line-height: 48px;
+            border-radius: 0;
+            text-align: center;
+            padding: 0;
+            letter-spacing: 1px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loading"><span></span><span></span><span></span><span></span></div>
+    </div><!-- /.preloader -->
+
+        <div class="wrapper">
+            <!-- =========================
+          Header
+      =========================== -->
+            <header id="header" class="header header-transparent">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/images/logo/logo-light.png" class="logo-light" alt="logo">
+                            <img src="assets/images/logo/logo-dark.png" class="logo-dark" alt="logo">
+                        </a>
+                        <button class="navbar-toggler" type="button">
+                            <span class="menu-lines"><span></span></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="mainNavigation">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav__item">
+                                    <a href="request-quote.html" class="btn
+                                            btn__white" data-toggle="modal" data-target="#track"><i
+                                            class="icon-list"></i><span>Track
+                                            Your Shipment</span></a>
+                                </li><!-- /.nav-item -->
+                            </ul><!-- /.navbar-nav -->
+                        </div><!-- /.navbar-collapse -->
+
+                    </div><!-- /.container -->
+                </nav><!-- /.navabr -->
+            </header><!-- /.Header -->
+
+            <!-- ========================
+       page title 
+    =========================== -->
+            <section id="page-title" class="page-title bg-overlay
+                    bg-parallax">
+                <div class="bg-img"><img src="assets/images/sliders/image-14.png" alt="background"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a
+                                            href="Privacy&policy.html">Shipping Policy
+                                        </a></li>
+                                </ol>
+                            </nav>
+                            <h1 class="pagetitle__heading">Shipping Policy
+                            </h1>
+                        </div><!-- /.col-lg-12 -->
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </section><!-- /.page-title -->
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <!-- <h3> Cancellation Policy</h3> -->
+                            <h6 class="mt-5">
+                               1. Most stock orders are processed and shipped within 1-2 business days.
+                            </h6>    <h6 class="mt-5">
+                                2.Shigr stock items are subject to availability. If an item ordered is out of stock, a Shigr representative will contact you within 1-2 business days using the contact information that was provided at the time the order was placed.
+
+                            </h6>    <h6 class="mt-5">
+                               3. Shigr can ship products anywhere. When an order is placed, estimated delivery dates based upon the availability of the item(s), shipping method selected and final shipment destination will be provided. Shipping charges are determined by the total weight of the order placed. 
+
+                            </h6>    <h6 class="mt-5">
+                                4.Order errors or changes must be reported within 90 days from the date of shipment.
+
+                            </h6>
+                        </div>
+                    </div>
+                
+                </div>
+            </section>
+
+            <div class="modal fade" id="track" tabindex="-1" role="dialog" aria-labelledby="trackLabel" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="cardtwoLabel">Track Your Shipment</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container">
+                        <div class="col-md-12 mx-auto">
+                          <h2>coming soon</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+
+
+            <!-- ========================
+      Footer
+    ========================== -->
+            <footer id="footer" class="footer footer-1">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-4
+                                    footer__widget footer__widget-about">
+                                <div class="footer__widget-content">
+                                    <img src="assets/images/logo/logo-dark.png" alt="logo" class="mb-30">
+                                </div>
+                            </div><!-- /.col-lg-4 -->
+                            <div class="col-6 col-sm-6 col-md-3 col-lg-4
+                                    footer__widget footer__widget-nav
+                                    text-right">
+                                <h6 class="footer__widget-title">Who We Are</h6>
+                                <div class="footer__widget-content">
+                                    <nav>
+                                        <ul class="list-unstyled">
+                                            <li><a href="index.html">About Us</a></li>
+                                            <li><a href="Terms-nd-condition.html">Term
+                                                    & Condition</a></li>
+                                            <li><a href="Privacy&policy.html">Privacy
+                                                  Policy</a></li>
+                                        </ul>
+                                    </nav>
+                                </div><!-- /.footer-widget-content -->
+                            </div><!-- /.col-lg-2 -->
+                            <div class="col-6 col-sm-6 col-md-3 col-lg-4
+                                    footer__widget footer__widget-nav
+                                    text-right">
+                                <h6 class="footer__widget-title">What We Do</h6>
+                                <div class="footer__widget-content">
+                                    <nav>
+                                        <ul class="list-unstyled">
+                                            <li><a href="Shipping-policy.html">Shipping
+                                                    Policy</a></li>
+                                            <li><a href="Refund-cancellation.html">Refund/cancellation</a></li>
+                                            <li><a href="index.html">Contact US</a></li>
+                                        </ul>
+                                    </nav>
+                                </div><!-- /.footer-widget-content -->
+                            </div><!-- /.col-lg-2 -->
+
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.footer-top -->
+                <div class="container">
+                    <div class="footer-bottom">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-9 col-lg-9">
+                                <div class="footer__copyright">
+                                    <!-- <nav>
+                    <ul class="list-unstyled footer__copyright-links d-flex flex-wrap">
+                      <li><a href="#">Shipping Policy</a></li>
+                      <li><a href="#">Refund/Cancilation</a></li>
+                      <li><a href="#">Contact US</a></li>
+                      
+                    </ul>
+                  </nav> -->
+                                    <span>&copy; 2022 Shigr, with Love by</span>
+                                    <a href="http://themeforest.net/user/Shigr">Shigr.com</a>
+                                </div><!-- /.Footer-copyright -->
+                            </div>
+                            <!-- /.col-lg-6 -->
+                            <div class="col-sm-12 col-md-3 col-lg-3 d-flex
+                                    align-items-center">
+                                <div class="social__icons
+                                        justify-content-end w-100">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div><!-- /.social-icons -->
+                            </div><!-- /.col-lg-6 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.Footer-bottom -->
+                </div><!-- /.container -->
+            </footer><!-- /.Footer -->
+            <button id="scrollTopBtn"><i class="fa fa-long-arrow-up"></i></button>
+            <div class="module__search-container">
+                <i class="fa fa-times close-search"></i>
+                <form class="module__search-form">
+                    <input type="text" class="search__input" placeholder="Search Here">
+                    <button class="module__search-btn"><i class="fa
+                                fa-search"></i></button>
+                </form>
+            </div><!-- /.module-search-container -->
+            <div style="position: fixed;right: 20px;bottom:100px;width:
+                    60px;height: 60px;">
+
+                <a href="https://wa.me/919650708046"><img src="assets/images/logo/whatsappimg.png"
+                        style="width: 60px;height: 60px;"></a>
+
+            </div>
+        </div><!-- /.wrapper -->
+
+
+        <script src="assets/main.js"> </script>
+
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+</body>
+
+</html>

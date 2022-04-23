@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>sheet</title>
+
+    <script type="text/javascript" src="sheet.js"></script>
+</head>
+
+<body>
+    <h2>sheets api</h2>
+    <form method="post" name="datafetch">
+
+        <p>
+            <label>name : 
+          <input name="fname" type="text" /></label>
+        </p>
+
+        <p>
+            <label>email : 
+          <input name="email" type="password" /></label>
+        </p>
+        <p>
+            <label>phone : 
+          <input name="phone" type="password" /></label>
+        </p>
+
+        <button onclick="check();">click to confirm</button>
+        <h5 id="show"></h5>
+        <br><br><br>
+        <p>
+            <button type="submit" name="submit" value="Register"> Submit</button>
+        </p>
+
+    </form>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzKEy7NcS3mfXj9bIaByF0I-NoEoRBumD3fHwgTGVTelIEXpJhn1gzDSZE4pqI7D6o/exec'
+        const form = document.forms['datafetch']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("Thanks for Placing order"))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
