@@ -69,6 +69,9 @@
       border: 0;
       border-radius: 0;
     }
+    .pac-container {
+      z-index: 1051 !important;
+  }
 
     .modal-content {
       /* position: relative; */
@@ -81,6 +84,7 @@
       border: 1px solid rgba(0, 0, 0, .2);
       border-radius: 0.3rem;
       outline: 0;
+      z-index: 1051 !important;
     }
 
     .modal.show .modal-dialog {
@@ -347,7 +351,7 @@
       </section><!-- /.slider -->
       <!-- Modal section  -->
 
-      <div class="modal fade" id="cardone" tabindex="-1" role="dialog" aria-labelledby="cardoneLabel"
+      <div class="modal fade" id="cardone" tabindex="-1"  role="dialog" aria-labelledby="cardoneLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-fullscreen" role="document">
           <div class="modal-content">
@@ -363,12 +367,10 @@
                   <div id="cardONE">
                     <form id="nationalForm">
                       <div class="form-group mb-5" id="btn-need-to-hide-1">
-                        <input type="number" class="form-control" min="0" maxlength="6" id="pincode-2" name="pincode"
-                          placeholder="City/Pincode">
+                        <input type="text" class="form-control" min="0" maxlength="6" id="pincode-2" name="pincode-2" placeholder="City/Pincode" required>
                       </div>
                       <div class="form-group mb-5" id="btn-need-to-hide-2">
-                        <input type="number" class="form-control" min="0" id="weight-2" name="weight"
-                          placeholder="Weight (in Grams)">
+                        <input type="number" class="form-control" min="0" id="weight-2" name="weight" placeholder="Weight (in Grams)" required>
                       </div>
                       <!-- <div class="form-group mb-5">
                   <input type="text" class="form-control disable" name="price" placeholder="Price" id="price" readonly>
@@ -377,23 +379,6 @@
                       <span class="btn btn__primary btn__hover3 mt-2" onclick="nationalFormSubmit();"
                         id="get-quote-first">Get Quote</span>
                     </form>
-                    <script>
-                      var searchInput = 'search_input';
-                       
-                      $(document).ready(function () {
-                       var autocomplete;
-                       autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                        types: ['geocode'],
-                        /*componentRestrictions: {
-                         country: "USA"
-                        }*/
-                       });
-                        
-                       google.maps.event.addListener(autocomplete, 'place_changed', function () {
-                        var near_place = autocomplete.getPlace();
-                       });
-                      });
-                      </script>
                   </div>
 
                   <div id="myDIV">
@@ -456,7 +441,7 @@
                   <div id="cardTWO">
                     <form id="internationalForm">
                       <div class="form-group mb-5">
-                        <input type="number" class="form-control" min="0" maxlength="6" id="pincode-1" name="pincode"
+                        <input type="number" class="form-control" min="0" maxlength="6" id="pincode-1" name="pincode-1"
                           placeholder="City/Pincode">
                       </div>
                       <div class="form-group mb-5">
@@ -874,8 +859,10 @@
             style="width: 60px;height: 60px;"></a>
 
       </div>
-    </div><!-- /.wrapper -->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvnOAJWVkuqSoK4w0GP8ZPG2UeBFbSiKs&libraries=geometry,places&callback"></script>
+    </div>
+    <!-- /.wrapper -->
+
+   <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvnOAJWVkuqSoK4w0GP8ZPG2UeBFbSiKs&libraries=geometry,places&callback=initMap"></script>
 
 
     <script src="assets/main.js"> </script>
@@ -883,8 +870,42 @@
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
-  
+    <script>
+      var searchInput4 = 'pincode-2';
+
+      $(document).ready(function() {
+          var autocomplete;
+          autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput4)), {
+              types: ['geocode'],
+              componentRestrictions: {
+                  country: "IN",
+              }
+          });
+
+          google.maps.event.addListener(autocomplete, 'place_changed', function() {
+              var near_place = autocomplete.getPlace();
+          });
+      });
+  </script>
+  <script>
+    var searchInput3 = 'pincode-1';
+
+    $(document).ready(function() {
+        var autocomplete;
+        autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput3)), {
+            /*types: ['geocode'],
+            componentRestrictions: {
+                country: "IN",
+            }*/
+        });
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var near_place = autocomplete.getPlace();
+        });
+    });
+</script>
     </div>
+    
   
 </body>
 
