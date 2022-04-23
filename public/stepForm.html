@@ -83,7 +83,7 @@
 
     <div class="main">
         <div class="container">
-            <form method="POST" id="signup-form" class="signup-form" action="#">
+            <form method="POST" id="stepform" class="stepform" name="stepform" action="#">
                 <div>
                     <span class="step-no"><img src="assets1\img\logo-dark.png" alt=""></span>
                     <h3>Personal info</h3>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" name="phone" required placeholder="Phone No" id="phone" />
+                                <input type="number" name="phone" required placeholder="Phone No" id="phone" />
                             </div>
                         </div>
                     </fieldset>
@@ -121,6 +121,7 @@
                                 <div class="form-flex">
                                     <div class="form-group">
                                         <input type="text" name="pickup" minlength="2" placeholder="Pick up Address" required id="pickup" />
+                                        <span class="text-input"><b>Pickup Restricted to Ghaziabad and Noida</b></span>
                                     </div>
                                 </div>
                             </div>
@@ -140,6 +141,7 @@
                                       <option value="5">Returned goods</option>
                                       <option value="6">Other</option>
                                     </select>
+
                                 </div>
                                 <br>
                                 <!-- <input type="text" name="article" id="article" placeholder="Document/Merchandise Name of Article" /> --->
@@ -187,11 +189,15 @@
                         </div>
                     </fieldset>
                 </div>
+
             </form>
         </div>
     </div>
 
     <!-- JS -->
+    <script type="text/javascript" src="sheet.js"></script>
+
+
     <script src="assets1/vendor/jquery/jquery.min.js"></script>
     <script src="assets1/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="assets1/vendor/jquery-validation/dist/additional-methods.min.js"></script>
@@ -346,6 +352,20 @@
         /*if the user clicks anywhere outside the select box,
         then close all select boxes:*/
         document.addEventListener("click", closeAllSelect);
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzKEy7NcS3mfXj9bIaByF0I-NoEoRBumD3fHwgTGVTelIEXpJhn1gzDSZE4pqI7D6o/exec'
+        const form = document.forms['stepform']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("Thanks for Placing order"))
+                .catch(error => console.error('Error!', error.message))
+        })
     </script>
 </body>
 

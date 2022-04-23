@@ -1,8 +1,6 @@
 (function($) {
 
-
-
-    var form = $("#signup-form");
+    var form = $("#stepform ");
     form.validate({
         errorPlacement: function errorPlacement(error, element) {
             element.before(error);
@@ -41,7 +39,7 @@
             if (currentIndex === 3) {
                 form.parent().parent().parent().find('.footer').removeClass('footer-2').addClass('footer-' + currentIndex + '');
             }
-             if(currentIndex === 4) {
+            if (currentIndex === 4) {
                 form.parent().parent().parent().find('.footer').removeClass('footer-3').addClass('footer-' + currentIndex + '');
             }
             form.validate().settings.ignore = ":disabled,:hidden";
@@ -51,8 +49,19 @@
             form.validate().settings.ignore = ":disabled";
             return form.valid();
         },
-        onFinished: function(event, currentIndex) {
-            alert('Submited');
+        onFinished: function display() {
+            DispWin = window.open('', 'NewWin', 'toolbar=no,status=no,width=500,height=400')
+            message = " <ul><li><font color= black;> <b> NAME: </b>" + document.stepform.full_name.value + "</font></li>";
+            message += " <li> <b> Email Id: </b>" + document.stepform.email.value;
+            message += " <li> <b> PHONE: </b>" + document.stepform.phone.value;
+            message += " <li> <b> Pickup Address: </b>" + document.stepform.pickup.value;
+            message += " <li> <b> Drop Address: </b>" + document.stepform.drop.value;
+            message += " <li> <b> Article: </b>" + document.stepform.article.value;
+            message += " <li> <b> Pickup Date: </b>" + document.stepform.date.value;
+            message += " <li> <b> Pickup Time: </b>" + document.stepform.time.value;
+            message += " <li> <b> Order id: </b>" + document.stepform.orderid.value + "</ul > ";
+            DispWin.document.write(message);
+
         },
         onStepChanged: function(event, currentIndex, priorIndex) {
 
@@ -86,30 +95,30 @@
     var marginSlider = document.getElementById('slider-margin');
     if (marginSlider != undefined) {
         noUiSlider.create(marginSlider, {
-              start: [1100],
-              step: 100,
-              connect: [true, false],
-              tooltips: [true],
-              range: {
-                  'min': 100,
-                  'max': 2000
-              },
-              pips: {
-                    mode: 'values',
-                    values: [100, 2000],
-                    density: 4
-                    },
-                format: wNumb({
-                    decimals: 0,
-                    thousand: '',
-                    prefix: '$ ',
-                })
+            start: [1100],
+            step: 100,
+            connect: [true, false],
+            tooltips: [true],
+            range: {
+                'min': 100,
+                'max': 2000
+            },
+            pips: {
+                mode: 'values',
+                values: [100, 2000],
+                density: 4
+            },
+            format: wNumb({
+                decimals: 0,
+                thousand: '',
+                prefix: '$ ',
+            })
         });
         var marginMin = document.getElementById('value-lower'),
-	    marginMax = document.getElementById('value-upper');
+            marginMax = document.getElementById('value-upper');
 
-        marginSlider.noUiSlider.on('update', function ( values, handle ) {
-            if ( handle ) {
+        marginSlider.noUiSlider.on('update', function(values, handle) {
+            if (handle) {
                 marginMax.innerHTML = values[handle];
             } else {
                 marginMin.innerHTML = values[handle];
