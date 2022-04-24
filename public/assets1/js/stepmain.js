@@ -51,6 +51,7 @@
         },
         onFinished: function(event, currentIndex) {
             alert('Submited');
+            window.location.href = "index.html";
         },
         onStepChanged: function(event, currentIndex, priorIndex) {
 
