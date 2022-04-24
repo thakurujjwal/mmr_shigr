@@ -49,19 +49,8 @@
             form.validate().settings.ignore = ":disabled";
             return form.valid();
         },
-        onFinished: function display() {
-            DispWin = window.open('', 'NewWin', 'toolbar=no,status=no,width=500,height=400')
-            message = " <ul><li><font color= black;> <b> NAME: </b>" + document.stepform.full_name.value + "</font></li>";
-            message += " <li> <b> Email Id: </b>" + document.stepform.email.value;
-            message += " <li> <b> PHONE: </b>" + document.stepform.phone.value;
-            message += " <li> <b> Pickup Address: </b>" + document.stepform.pickup.value;
-            message += " <li> <b> Drop Address: </b>" + document.stepform.drop.value;
-            message += " <li> <b> Article: </b>" + document.stepform.article.value;
-            message += " <li> <b> Pickup Date: </b>" + document.stepform.date.value;
-            message += " <li> <b> Pickup Time: </b>" + document.stepform.time.value;
-            message += " <li> <b> Order id: </b>" + document.stepform.orderid.value + "</ul > ";
-            DispWin.document.write(message);
-
+        onFinished: function(event, currentIndex) {
+            alert('Submited');
         },
         onStepChanged: function(event, currentIndex, priorIndex) {
 
