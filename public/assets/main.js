@@ -65,9 +65,22 @@ function nationalFormSubmit() {
         let hamara_msgg = document.getElementById("hamara-msgg");
         let hamara1_msgg = document.getElementById("hamara1-msgg");
         hamara1_msgg.style.color = "red"
-        hamara_msgg.style.fontSize = "30px"
-        hamara_msgg.innerHTML = "₹ " + displayPrice;
-        hamara1_msgg.innerHTML = "₹ " + Math.round((displayPrice / 100) * 50).toFixed(2);
+        // hamara_msgg.style.fontSize = "30px"
+        if(typeof displayPrice !== "string"){
+            hamara_msgg.innerHTML = "₹ " + displayPrice;
+            hamara1_msgg.innerHTML = "₹ " + Math.round((displayPrice / 100) * 50).toFixed(2);
+            hamara_msgg.classList.add("pre_price_strike");
+            hamara_msgg.classList.remove("new_deal_contact");
+            $("#hamara1-msgg").show();
+            $('[for="exampleInputEmail1"]').show();
+        }else{
+            hamara_msgg.classList.remove("pre_price_strike");
+            hamara_msgg.classList.add("new_deal_contact");
+            hamara_msgg.innerHTML = displayPrice;
+            $("#hamara1-msgg").hide();
+            $('[for="exampleInputEmail1"]').hide();
+
+        }
         return true;
     }
 }
@@ -141,9 +154,27 @@ function internationalFormSubmit() {
         let hamara_msgg1 = document.getElementById("hamara-msg1");
         let hamara2_msgg = document.getElementById("hamara2-msgg");
         hamara2_msgg.style.color = "red"
-        hamara_msgg1.style.fontSize = "30px"
-        hamara_msgg1.innerHTML = "₹ " + displayPrice;
-        hamara2_msgg.innerHTML = "₹ " + Math.round((displayPrice / 100) * 50).toFixed(2);
+        // // hamara_msgg1.style.fontSize = "30px"
+        // hamara_msgg1.innerHTML = "₹ " + displayPrice;
+        // hamara2_msgg.innerHTML = "₹ " + Math.round((displayPrice / 100) * 50).toFixed(2);
+       
+
+          // hamara_msgg1.style.fontSize = "30px"
+        if(typeof displayPrice !== "string"){
+            hamara_msgg1.innerHTML = "₹ " + displayPrice;
+            hamara2_msgg.innerHTML = "₹ " + Math.round((displayPrice / 100) * 50).toFixed(2);
+            hamara_msgg1.classList.add("pre_price_strike");
+            hamara_msgg1.classList.remove("new_deal_contact");
+            $("#hamara2-msgg").show();
+            $('[for="exampleInputEmail1"]').show();
+        }else{
+            hamara_msgg1.classList.remove("pre_price_strike");
+            hamara_msgg1.classList.add("new_deal_contact");
+            hamara_msgg1.innerHTML = displayPrice;
+            $('[for="exampleInputEmail1"]').hide();
+            $("#hamara2-msgg").hide();
+
+        }
 
         return true;
 
