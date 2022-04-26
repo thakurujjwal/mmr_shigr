@@ -65,6 +65,7 @@ function nationalFormSubmit() {
         let hamara_msgg = document.getElementById("hamara-msgg");
         let hamara1_msgg = document.getElementById("hamara1-msgg");
         hamara1_msgg.style.color = "red"
+        hamara_msgg.style.fontSize = "30px"
         hamara_msgg.innerHTML = "₹ " + displayPrice;
         hamara1_msgg.innerHTML = "₹ " + Math.round((displayPrice / 100) * 50).toFixed(2);
         return true;
@@ -140,7 +141,7 @@ function internationalFormSubmit() {
         let hamara_msgg1 = document.getElementById("hamara-msg1");
         let hamara2_msgg = document.getElementById("hamara2-msgg");
         hamara2_msgg.style.color = "red"
-        // hamara_msgg1.style.fontSize = "30px"
+        hamara_msgg1.style.fontSize = "30px"
         hamara_msgg1.innerHTML = "₹ " + displayPrice;
         hamara2_msgg.innerHTML = "₹ " + Math.round((displayPrice / 100) * 50).toFixed(2);
 

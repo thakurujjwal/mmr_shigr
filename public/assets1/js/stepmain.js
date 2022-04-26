@@ -1,8 +1,6 @@
 (function($) {
 
-
-
-    var form = $("#signup-form");
+    var form = $("#stepform ");
     form.validate({
         errorPlacement: function errorPlacement(error, element) {
             element.before(error);
@@ -41,7 +39,7 @@
             if (currentIndex === 3) {
                 form.parent().parent().parent().find('.footer').removeClass('footer-2').addClass('footer-' + currentIndex + '');
             }
-             if(currentIndex === 4) {
+            if (currentIndex === 4) {
                 form.parent().parent().parent().find('.footer').removeClass('footer-3').addClass('footer-' + currentIndex + '');
             }
             form.validate().settings.ignore = ":disabled,:hidden";
@@ -53,6 +51,7 @@
         },
         onFinished: function(event, currentIndex) {
             alert('Submited');
+            window.location.href = "index.html";
         },
         onStepChanged: function(event, currentIndex, priorIndex) {
 
@@ -86,30 +85,30 @@
     var marginSlider = document.getElementById('slider-margin');
     if (marginSlider != undefined) {
         noUiSlider.create(marginSlider, {
-              start: [1100],
-              step: 100,
-              connect: [true, false],
-              tooltips: [true],
-              range: {
-                  'min': 100,
-                  'max': 2000
-              },
-              pips: {
-                    mode: 'values',
-                    values: [100, 2000],
-                    density: 4
-                    },
-                format: wNumb({
-                    decimals: 0,
-                    thousand: '',
-                    prefix: '$ ',
-                })
+            start: [1100],
+            step: 100,
+            connect: [true, false],
+            tooltips: [true],
+            range: {
+                'min': 100,
+                'max': 2000
+            },
+            pips: {
+                mode: 'values',
+                values: [100, 2000],
+                density: 4
+            },
+            format: wNumb({
+                decimals: 0,
+                thousand: '',
+                prefix: '$ ',
+            })
         });
         var marginMin = document.getElementById('value-lower'),
-	    marginMax = document.getElementById('value-upper');
+            marginMax = document.getElementById('value-upper');
 
-        marginSlider.noUiSlider.on('update', function ( values, handle ) {
-            if ( handle ) {
+        marginSlider.noUiSlider.on('update', function(values, handle) {
+            if (handle) {
                 marginMax.innerHTML = values[handle];
             } else {
                 marginMin.innerHTML = values[handle];

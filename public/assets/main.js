@@ -56,6 +56,7 @@ function nationalFormSubmit() {
             displayPrice = 2299;
         } else if (weight > 15000) {
             displayPrice = " For the best deal contact on  9650708046 or support@shigr.com";
+
         }
 
 
@@ -145,7 +146,7 @@ function internationalFormSubmit() {
             displayPrice = 21199;
         } else if (weight > 15000) {
             displayPrice =
-                "For the best deal contact on  9650708046 or support@shigr.com";
+                " For the best deal contact on  9650708046 or support@shigr.com";
         }
 
         document.getElementById("myDIVV").style.display = "block";
@@ -157,7 +158,7 @@ function internationalFormSubmit() {
         // hamara_msgg1.innerHTML = "₹ " + displayPrice;
         // hamara2_msgg.innerHTML = "₹ " + Math.round((displayPrice / 100) * 50).toFixed(2);
        
-debugger;
+
           // hamara_msgg1.style.fontSize = "30px"
         if(typeof displayPrice !== "string"){
             hamara_msgg1.innerHTML = "₹ " + displayPrice;
